@@ -19,10 +19,31 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (data) {
             console.log(data)
+            console.log(data.city.name)
+            console.log(data.list[0].weather[0].icon)
 
+
+            
+            console.log(iconCode)
+
+            var iconUrl = "http://openweathermap.org/img/wn/" + iconCode;
+
+            // http://openweathermap.org/img/wn/10d@2x.png
+            console.log(iconUrl)
+            // $(".icon").html("<img src='" + iconUrl  + "'>");
+           
+
+            var iconCode = "<img src='http://openweathermap.org/img/w/" + data.list[0].weather[0].icon + ".png' alt='Icon depicting current weather.'>";
+            console.log(iconCode)
+            //  set city search result to local storage
+            localStorage.setItem("city", cityName)
+            localStorage.setItem("icon", iconCode)
 
         })
     })
+    
+    localStorage.getItem("<img src='http://openweathermap.org/img/w/04d.png' alt='Icon depicting current weather.'>")
+    $(".icon").append("<img src='http://openweathermap.org/img/w/04d.png' alt='Icon depicting current weather.'>");
 })
 
 
