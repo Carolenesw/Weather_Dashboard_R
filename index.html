@@ -1,16 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Dashboard</title>
 
-    <link rel="stylesheet" href="./Asset/style.css">
-    <script src="./Asset/library/moment.min.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Dashboard</title>
+  <!-- stlye sheet, library and bootstrap linsk -->
+  <link rel="stylesheet" href="./Asset/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <script src="./Asset/library/moment.min.js"></script>
 </head>
+
 <body>
-    
-    <script src="./Asset/script.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- use card to create page header -->
+  <div class="card text-white bg-dark mb-3" style="max-width: auto;">
+    <div class="card-header">Weather Dashboard</div>
+  </div>
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-2">
+        <!-- use form to append search criterias -->
+        <label for="search-input">Search for a City:</label>
+        <form id="city-search">
+          <textarea name="" class="text" cols="15" rows="1" placeholder="Type City"></textarea>
+          <img class="save" src="." width="30" alt="save button">
+        </form>
+      </div>
+
+      <div class="col-lg-8">
+        <div class="row">
+          <section id="current-city">
+            <div class="date"></div>
+            <div class="city"></div>
+            <div class="temp"></div>
+            <div class="humidity"></div>
+            <div class="wind"></div>
+            <div class="UV"></div>
+        </div>
+        </section>
+      </div>
+
+      <div class="row">
+        <section class="forecast">
+          <!-- use cards to store five days forecast info -->
+          <h3>5-Days Forecast:</h2>
+          <div class="col-sm-2.4">
+            <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
+              <div class="card-body">
+                <p class="card-text">CARD 1</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-2.4">
+            <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
+              <div class="card-body">
+                <p class="card-text">CARD 2</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-2.4">
+            <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
+              <div class="card-body">
+                <p class="card-text">CARD 3</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-2.4">
+            <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
+              <div class="card-body">
+                <p class="card-text">CARD 4</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-2.4">
+            <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
+              <div class="card-body">
+                <p class="card-text">CARD 5</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- script links, javascript and jquery -->
+  <script src="./Asset/script.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>
+
 </html>
