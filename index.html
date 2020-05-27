@@ -18,14 +18,14 @@
   <div class="card text-white bg-dark mb-3" style="max-width: auto;">
     <div class="card-header">Weather Dashboard</div>
   </div>
-  <div class="container">
 
+  <div class="container">
     <div class="row">
       <div class="col-lg-2">
         <!-- use form to append search criterias -->
         <label for="search-input">Search for a City:</label>
         <form id="city-search">
-          <textarea name="" class="text" cols="15" rows="1" placeholder="Type City"></textarea>
+          <textarea name="" class="search" cols="15" rows="1" placeholder="Type City"></textarea>
           <img class="save" src="." width="30" alt="save button">
         </form>
       </div>
@@ -44,10 +44,10 @@
       </div>
 
       <div class="row">
-        <section class="forecast">
+        <section id="forecast">
           <!-- use cards to store five days forecast info -->
           <h3>5-Days Forecast:</h2>
-          <div class="col-sm-2.4">
+          <div class="col-sm-2.4" class="card1" >
             <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
               <div class="card-body">
                 <p class="card-text">CARD 1</p>
@@ -55,7 +55,7 @@
             </div>
           </div>
 
-          <div class="col-sm-2.4">
+          <div class="col-sm-2.4" class="card2">
             <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
               <div class="card-body">
                 <p class="card-text">CARD 2</p>
@@ -63,7 +63,7 @@
             </div>
           </div>
 
-          <div class="col-sm-2.4">
+          <div class="col-sm-2.4" class="card3">
             <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
               <div class="card-body">
                 <p class="card-text">CARD 3</p>
@@ -71,7 +71,7 @@
             </div>
           </div>
 
-          <div class="col-sm-2.4">
+          <div class="col-sm-2.4" class="card4">
             <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
               <div class="card-body">
                 <p class="card-text">CARD 4</p>
@@ -79,7 +79,7 @@
             </div>
           </div>
 
-          <div class="col-sm-2.4">
+          <div class="col-sm-2.4" class="card5">
             <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
               <div class="card-body">
                 <p class="card-text">CARD 5</p>
