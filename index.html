@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="./Asset/style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     <!-- script links, javascript and jquery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <script src="./Asset/library/moment.min.js"></script>
 </head>
@@ -26,7 +28,7 @@
         <label for="search-input">Search for a City:</label>
         <form id="city-search">
           <textarea name="" class="search" cols="15" rows="1" placeholder="Type City"></textarea>
-          <img class="save" src="." width="30" alt="save button">
+          <img class="save" src="./Asset/image/Button-search.png" width="30" alt="save button">
         </form>
       </div>
 
@@ -42,80 +44,80 @@
             <div class="UV"></div>
         </div>
         </section>
-      </div>
 
-      <div class="row">
-        <section id="forecast">
-          <!-- use cards to store five days forecast info -->
-          <h3>5-Days Forecast:</h2>
-          <div class="col-sm-2.4" class="card1" >
-            <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
-              <div class="card-body">
-                <p class="card-text">CARD 1</p>
-                <div class="date1"></div>
-                <div class="icon1"></div>
-            <div class="temp1"></div>
-            <div class="humidity1"></div>
+
+        <div class="row">
+          <section id="forecast">
+            <!-- use cards to store five days forecast info -->
+            <h3>5-Days Forecast:</h2>
+              <div class="col-sm-2.4" class="card1">
+                <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
+                  <div class="card-body">
+                    <p class="card-text">CARD 1</p>
+                    <div class="date1"></div>
+                    <div class="icon1"></div>
+                    <div class="temp1"></div>
+                    <div class="humidity1"></div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
 
-          <div class="col-sm-2.4" class="card2">
-            <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
-              <div class="card-body">
-                <p class="card-text">CARD 2</p>
-                <div class="date2"></div>
-                <div class="icon2"></div>
-            <div class="temp2"></div>
-            <div class="humidity2"></div>
+              <div class="col-sm-2.4" class="card2">
+                <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
+                  <div class="card-body">
+                    <p class="card-text">CARD 2</p>
+                    <div class="date2"></div>
+                    <div class="icon2"></div>
+                    <div class="temp2"></div>
+                    <div class="humidity2"></div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
 
-          <div class="col-sm-2.4" class="card3">
-            <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
-              <div class="card-body">
-                <p class="card-text">CARD 3</p>
-                <div class="date3"></div>
-                <div class="icon3"></div>
-            <div class="temp3"></div>
-            <div class="humidity3"></div>
+              <div class="col-sm-2.4" class="card3">
+                <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
+                  <div class="card-body">
+                    <p class="card-text">CARD 3</p>
+                    <div class="date3"></div>
+                    <div class="icon3"></div>
+                    <div class="temp3"></div>
+                    <div class="humidity3"></div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
 
-          <div class="col-sm-2.4" class="card4">
-            <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
-              <div class="card-body">
-                <p class="card-text">CARD 4</p>
-                <div class="date4"></div>
-                <div class="icon4"></div>
-            <div class="temp4"></div>
-            <div class="humidity4"></div>
+              <div class="col-sm-2.4" class="card4">
+                <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
+                  <div class="card-body">
+                    <p class="card-text">CARD 4</p>
+                    <div class="date4"></div>
+                    <div class="icon4"></div>
+                    <div class="temp4"></div>
+                    <div class="humidity4"></div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
 
-          <div class="col-sm-2.4" class="card5">
-            <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
-              <div class="card-body">
-                <p class="card-text">CARD 5</p>
-                <div class="date5"></div>
-                <div class="icon5"></div>
-            <div class="temp5"></div>
-            <div class="humidity5"></div>
+              <div class="col-sm-2.4" class="card5">
+                <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
+                  <div class="card-body">
+                    <p class="card-text">CARD 5</p>
+                    <div class="date5"></div>
+                    <div class="icon5"></div>
+                    <div class="temp5"></div>
+                    <div class="humidity5"></div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </section>
-
+          </section>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- script links, javascript and jquery -->
+  <!-- script javascript -->
   <script src="./Asset/script.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ 
 </body>
 
 </html>
