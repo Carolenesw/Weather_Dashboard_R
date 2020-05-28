@@ -40,7 +40,7 @@ $(document).ready(function () {
 
             // use variables to capture required data from API call
             // var iconCode = "<img src='http://openweathermap.org/img/w/" + data.list[0].weather[0].icon + ".png' alt='Icon depicting current weather.'>";
-            var iconCode = $(".icon").html("<img src='http://openweathermap.org/img/w/" + data.list[0].weather[0].icon + ".png' alt=''>");
+            var iconCode = data.list[0].weather[0].icon
             // var iconCode = "<img src=http://openweathermap.org/img/wn/" + data.list[0].weather[0].icon + ".png"+ ">";
             console.log(iconCode)
             var temp = data.list[0].main.temp;
@@ -55,25 +55,25 @@ $(document).ready(function () {
             //  set current city search result to local storage
             localStorage.setItem("city", cityName + " " + "(" + currentDate + ")");
             localStorage.setItem("cityS", cityS);
-            localStorage.setItem("icon", JSON.stringify(iconCode));
+            localStorage.setItem("icon", iconCode);
             localStorage.setItem("date", currentDate);
             localStorage.setItem("temp", "Temperature: " + temp + "F");
             localStorage.setItem("humidity", "Humidity: " + humD + "%");
             localStorage.setItem("wind", "Wind Speed: " + windS + "MPH");
 
-            // render search results on html page  
             renderCurrentDayForecast();
             // show list of search results on html page  
             renderLastSearchList();
         })
 
     })
-
+    // render search results on html page  
+    renderCurrentDayForecast();
 
     // render currentr forecast function to display search result on page
     function renderCurrentDayForecast() {
         var city = localStorage.getItem("city");
-        var icon = JSON.parse(localStorage.getItem("icon"));
+        var icon = localStorage.getItem("icon");
         var date = localStorage.getItem("date");
         // console.log(date)
         var temp = localStorage.getItem("temp");
@@ -83,11 +83,11 @@ $(document).ready(function () {
         if (city) {
             $(".city").text(city);
             $(".date").text(date);
-            $(".icon").text(icon);
+            $(".icon").html("<img src='https://openweathermap.org/img/wn/" + icon  + ".png" + "'>");
             $(".temp").text(temp);
             $(".humidity").text(hum);
             $(".wind").text(wind);
-        } 
+        }
         // else {
         //     return;
         // }
@@ -102,8 +102,8 @@ $(document).ready(function () {
         console.log(cityList)
 
         // loop through array using .each() method and append to search form 
-        $.each(cityList, function(i, city) {
-            $("#city-search").append("<div>" + city+ "</div>");
+        $.each(cityList, function (i, city) {
+            $("#city-search").append("<div>" + city + "</div>");
         });
     }
 
