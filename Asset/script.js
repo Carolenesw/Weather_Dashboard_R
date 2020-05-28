@@ -35,10 +35,12 @@ $(document).ready(function () {
             console.log(data.list[0].weather[0].icon)
 
 
-            // $(".icon").html("<img src='http://openweathermap.org/img/w/" + data.list[0].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
+            // $(".icon").html("<img src='http://openweathermap.org/img/w/" + data.list[0].weather[0].icon + ".png' alt=''>");
 
             // use variables to capture required data from API call
-            var iconCode = "<img src='http://openweathermap.org/img/w/" + data.list[0].weather[0].icon + ".png' alt='Icon depicting current weather.'>";
+            // var iconCode = "<img src='http://openweathermap.org/img/w/" + data.list[0].weather[0].icon + ".png' alt='Icon depicting current weather.'>";
+            var iconCode =  $(".icon").html("<img src='http://openweathermap.org/img/w/" + data.list[0].weather[0].icon + ".png' alt=''>");
+            // var iconCode = "<img src=http://openweathermap.org/img/wn/" + data.list[0].weather[0].icon + ".png"+ ">";
             console.log(iconCode)
             var temp = data.list[0].main.temp;
             console.log(temp)
@@ -48,8 +50,8 @@ $(document).ready(function () {
             console.log(windS)
 
             //  set current city search result to local storage
-            localStorage.setItem("city", cityName);
-            localStorage.setItem("icon", iconCode);
+            localStorage.setItem("city", cityName + " " + "(" + currentDate + ")");
+            localStorage.setItem("icon", JSON.stringify(iconCode));
             localStorage.setItem("date", currentDate);
             localStorage.setItem("temp", "Temperature: " + temp + "F");
             localStorage.setItem("humidity", "Humidity: " + humD + "%");
@@ -60,8 +62,8 @@ $(document).ready(function () {
 
     function renderCurrentDayForecast() {
         var city = localStorage.getItem("city");
-        var icon = localStorage.getItem("icon");
-        var date = localStorage.getItem("date");
+        var icon = JSON.parse(localStorage.getItem("icon"));
+        // var date = localStorage.getItem("date");
         // console.log(date)
         var temp = localStorage.getItem("temp");
         var hum = localStorage.getItem("humidity");
@@ -69,7 +71,7 @@ $(document).ready(function () {
         // console.log(city)
         if (city) {
             $(".city").text(city);
-            $(".date").text(date);
+            // $(".date").text(date);
             $(".icon").text(icon);
             $(".temp").text(temp);
             $(".humidity").text(hum);
