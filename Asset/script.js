@@ -56,7 +56,7 @@ $(document).ready(function () {
             localStorage.setItem("city", cityName + " " + "(" + currentDate + ")");
             localStorage.setItem("cityS", cityS);
             localStorage.setItem("icon", iconCode);
-            localStorage.setItem("date", currentDate);
+            // localStorage.setItem("date", currentDate);
             localStorage.setItem("temp", "Temperature: " + temp + "F");
             localStorage.setItem("humidity", "Humidity: " + humD + "%");
             localStorage.setItem("wind", "Wind Speed: " + windS + "MPH");
@@ -74,15 +74,14 @@ $(document).ready(function () {
     function renderCurrentDayForecast() {
         var city = localStorage.getItem("city");
         var icon = localStorage.getItem("icon");
-        var date = localStorage.getItem("date");
-        // console.log(date)
+        // var date = localStorage.getItem("date");
         var temp = localStorage.getItem("temp");
         var hum = localStorage.getItem("humidity");
         var wind = localStorage.getItem("wind");
         // console.log(city)
         if (city) {
             $(".city").text(city);
-            $(".date").text(date);
+            // $(".date").text(date);
             $(".icon").html("<img src='https://openweathermap.org/img/wn/" + icon  + ".png" + "'>");
             $(".temp").text(temp);
             $(".humidity").text(hum);

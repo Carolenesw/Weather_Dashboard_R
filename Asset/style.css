@@ -3,22 +3,33 @@
     font-size: 40px;
     /* border: 5solid; */
     background-color: black;
+    font-family: 'Oswald', sans-serif;
 }
 
-.search {
-
+.input{
+    font-family: 'Oswald', sans-serif;
 }
 
-.save {
+.search .save {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    margin-left: 5px;
+}
 
-
+.city{
+    font-family: 'Oswald', sans-serif;
+    font-size: 35px;
 }
 
 #current-city {
-
-
+    font-family: 'PT Serif', serif;
 }
-.card1 .card2 .card3 .card4 .card5 {
 
-    
+.days {
+    font-family: 'Oswald', sans-serif;
+}
+
+#forecast {
+
+    font-family: 'PT Serif', serif;
 }

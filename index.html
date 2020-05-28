@@ -7,10 +7,12 @@
   <title>Weather Dashboard</title>
   <!-- stlye sheet, library and bootstrap linsk -->
   <link rel="stylesheet" href="./Asset/style.css">
+  <!-- google fonts  -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-     <!-- script links, javascript and jquery -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- script links, javascript and jquery -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <script src="./Asset/library/moment.min.js"></script>
 </head>
@@ -25,19 +27,20 @@
     <div class="row">
       <div class="col-lg-2">
         <!-- use form to append search criterias -->
-        <label for="search-input">Search for a City:</label>
+        <label class="input" for="search-input">Search for a City:</label>
         <form id="city-search">
           <textarea name="" class="search" cols="15" rows="1" placeholder="Type City"></textarea>
           <img class="save" src="./Asset/image/Button-search.png" width="30" alt="save button">
         </form>
+
       </div>
 
       <div class="col-lg-8">
         <div class="row">
           <section id="current-city">
+            <div class="city"></div>
             <div class="date"></div>
             <div class="icon"></div>
-            <div class="city"></div>
             <div class="temp"></div>
             <div class="humidity"></div>
             <div class="wind"></div>
@@ -49,7 +52,7 @@
         <div class="row">
           <section id="forecast">
             <!-- use cards to store five days forecast info -->
-            <h3>5-Days Forecast:</h2>
+            <h3 class="days">5-Day Forecast:</h2>
               <div class="col-sm-2.4" class="card1">
                 <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
                   <div class="card-body">
@@ -117,7 +120,7 @@
 
   <!-- script javascript -->
   <script src="./Asset/script.js"></script>
- 
+
 </body>
 
 </html>
