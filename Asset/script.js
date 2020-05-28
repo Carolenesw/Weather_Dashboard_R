@@ -97,10 +97,13 @@ $(document).ready(function () {
     function renderLastSearch() {
         // get city list from local storage and push to array
         var cityS = localStorage.getItem("cityS")
-        console.log(cityS)
         cityList.push(cityS)
         console.log(cityList)
-        
+
+        // loop through array using .each() method and append to search form 
+        $.each(cityList, function(i, city) {
+            $("#city-search").append("<div>" + city+ "</div>");
+        });
     }
 
 
