@@ -1,9 +1,9 @@
 $(document).ready(function () {
 
     var apiKey = "e1014510ebbf942b1f1d07d44fa4f59b";
-    var cityList = "";
     // create empty array to store city searches
     var cityList = [];
+    var fiveSearch = {};
     // use to moment.js to add and change dates
     var currentDate = moment().format('L');
     var date1 = moment().add(1, 'days').format('L');
@@ -51,10 +51,13 @@ $(document).ready(function () {
             console.log(windS)
             // use city name from api call to render list
             var cityS = data.city.name
+            var search = data
+            console.log(search)
 
             //  set current city search result to local storage
             localStorage.setItem("city", cityName + " " + "(" + currentDate + ")");
             localStorage.setItem("cityS", cityS);
+            localStorage.setItem("search", JSON.stringify(search))
             localStorage.setItem("icon", iconCode);
             // localStorage.setItem("date", currentDate);
             localStorage.setItem("temp", "Temperature: " + temp + " " + "F");
@@ -64,6 +67,7 @@ $(document).ready(function () {
             renderCurrentDayForecast();
             // show list of search results on html page  
             renderLastSearchList();
+
         })
 
     })
@@ -82,7 +86,7 @@ $(document).ready(function () {
         if (city) {
             $(".city").text(city);
             // $(".date").text(date);
-            $(".icon").html("<img src='https://openweathermap.org/img/wn/" + icon  + ".png" + "'>");
+            $(".icon").html("<img src='https://openweathermap.org/img/wn/" + icon + ".png" + "'>");
             $(".temp").text(temp);
             $(".humidity").text(hum);
             $(".wind").text(wind);
@@ -106,7 +110,15 @@ $(document).ready(function () {
         });
     }
 
+    // display five day forecase 
+    fiveDayForecast()
+    function fiveDayForecast() {
+        // use JSON to set and get object with api from localStorage
+        var citySearch = JSON.parse(localStorage.getItem("search"))
+        console.log(citySearch.city.name)
 
+
+    }
 
     // localStorage.getItem("<img src='http://openweathermap.org/img/w/04d.png' alt='Icon depicting current weather.'>")
     // $(".icon").append("<img src='http://openweathermap.org/img/w/04d.png' alt='Icon depicting current weather.'>");
