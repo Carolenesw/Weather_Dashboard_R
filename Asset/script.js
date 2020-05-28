@@ -57,9 +57,9 @@ $(document).ready(function () {
             localStorage.setItem("cityS", cityS);
             localStorage.setItem("icon", iconCode);
             // localStorage.setItem("date", currentDate);
-            localStorage.setItem("temp", "Temperature: " + temp + "F");
-            localStorage.setItem("humidity", "Humidity: " + humD + "%");
-            localStorage.setItem("wind", "Wind Speed: " + windS + "MPH");
+            localStorage.setItem("temp", "Temperature: " + temp + " " + "F");
+            localStorage.setItem("humidity", "Humidity: " + humD + " " + "%");
+            localStorage.setItem("wind", "Wind Speed: " + windS + " " + "MPH");
 
             renderCurrentDayForecast();
             // show list of search results on html page  

@@ -9,6 +9,9 @@
 .input{
     font-family: 'Oswald', sans-serif;
 }
+img {
+background-color: lightsteelblue;
+}
 
 .search .save {
     font-family: 'Oswald', sans-serif;
