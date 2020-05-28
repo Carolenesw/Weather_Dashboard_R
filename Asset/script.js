@@ -3,15 +3,15 @@ $(document).ready(function () {
     var apiKey = "e1014510ebbf942b1f1d07d44fa4f59b";
     var cityName = "";
 
-     // use to moment.js to add and change dates
-     var currentDate = moment().format('L');
-     var date1 = moment().add(1, 'days').format('L'); 
-     var date2 = moment().add(2, 'days').format('L')
-     var date3 = moment().add(3, 'days').format('L')
-     var date4 = moment().add(4, 'days').format('L')
-     var date5 = moment().add(5, 'days').format('L')
-     console.log(date5)
-     console.log(currentDate)
+    // use to moment.js to add and change dates
+    var currentDate = moment().format('L');
+    var date1 = moment().add(1, 'days').format('L');
+    var date2 = moment().add(2, 'days').format('L')
+    var date3 = moment().add(3, 'days').format('L')
+    var date4 = moment().add(4, 'days').format('L')
+    var date5 = moment().add(5, 'days').format('L')
+    console.log(date5)
+    console.log(currentDate)
 
     // click function to capture city search and call weather app API
     $(".save").on("click", function (event) {
@@ -19,6 +19,9 @@ $(document).ready(function () {
         cityName = $(".search").val().trim();
         console.log(cityName)
 
+        if (!cityName) {
+            alert("Please enter a City Name!")
+        }
         // AJAX call to the run OpenWeatherMap API for 5 days forecast
         // var queryURL = `https://api.openweathermap.org/data/2.5/forecast?q={cityName}&appid={apiKey}`;
 
@@ -55,6 +58,29 @@ $(document).ready(function () {
         })
     })
 
+    function renderCurrentDayForecast() {
+        var city = localStorage.getItem("city");
+        var icon = localStorage.getItem("icon");
+        var date = localStorage.getItem("date");
+        // console.log(date)
+        var temp = localStorage.getItem("temp");
+        var hum = localStorage.getItem("humidity");
+        var wind = localStorage.getItem("wind");
+        // console.log(city)
+        if (city) {
+            $(".city").text(city);
+            $(".date").text(date);
+            $(".icon").text(icon);
+            $(".temp").text(temp);
+            $(".humidity").text(hum);
+            $(".wind").text(wind);
+        }
+        else {
+            return;
+        }
+
+    }
+    renderCurrentDayForecast()
     // localStorage.getItem("<img src='http://openweathermap.org/img/w/04d.png' alt='Icon depicting current weather.'>")
     // $(".icon").append("<img src='http://openweathermap.org/img/w/04d.png' alt='Icon depicting current weather.'>");
 
