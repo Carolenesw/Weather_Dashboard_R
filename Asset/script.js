@@ -2,7 +2,6 @@ $(document).ready(function () {
 
     var apiKey = "e1014510ebbf942b1f1d07d44fa4f59b";
     var cityList = "";
-
     // create empty array to store city searches
     var cityList = [];
     // use to moment.js to add and change dates
@@ -62,14 +61,16 @@ $(document).ready(function () {
             localStorage.setItem("humidity", "Humidity: " + humD + "%");
             localStorage.setItem("wind", "Wind Speed: " + windS + "MPH");
 
-            renderLastSearch();
+            // render search results on html page  
+            renderCurrentDayForecast();
+            // show list of search results on html page  
+            renderLastSearchList();
         })
 
     })
 
 
     // render currentr forecast function to display search result on page
-    renderCurrentDayForecast();
     function renderCurrentDayForecast() {
         var city = localStorage.getItem("city");
         var icon = JSON.parse(localStorage.getItem("icon"));
@@ -86,7 +87,7 @@ $(document).ready(function () {
             $(".temp").text(temp);
             $(".humidity").text(hum);
             $(".wind").text(wind);
-        }
+        } 
         // else {
         //     return;
         // }
@@ -94,7 +95,7 @@ $(document).ready(function () {
     }
 
     // create function to render list of previous searches
-    function renderLastSearch() {
+    function renderLastSearchList() {
         // get city list from local storage and push to array
         var cityS = localStorage.getItem("cityS")
         cityList.push(cityS)
@@ -105,6 +106,7 @@ $(document).ready(function () {
             $("#city-search").append("<div>" + city+ "</div>");
         });
     }
+
 
 
     // localStorage.getItem("<img src='http://openweathermap.org/img/w/04d.png' alt='Icon depicting current weather.'>")
