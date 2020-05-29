@@ -11,22 +11,25 @@ $(document).ready(function () {
     var date3 = moment().add(3, 'days').format('L')
     var date4 = moment().add(4, 'days').format('L')
     var date5 = moment().add(5, 'days').format('L')
-    console.log(date5)
-    console.log(currentDate)
+    // console.log(date5)
+    // console.log(currentDate)
 
     // click function to capture city search and call weather app API
     $(".save").on("click", function (event) {
         event.preventDefault();
         cityName = $(".search").val().trim();
+        click = $(this).parent("#city-search");
+
+        // var textArea = $(this).parent().parent().find("textarea").val();
+
         console.log(cityName)
 
         if (!cityName) {
             alert("Please enter a City Name!")
         }
         // AJAX call to the run OpenWeatherMap API for 5 days forecast
-        var queryURL = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}`;
+        var queryURL = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&appid=${apiKey}`;
 
-        // var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&appid=" + apiKey;
         $.ajax({
             url: queryURL,
             method: "GET"
@@ -78,11 +81,10 @@ $(document).ready(function () {
         var temp = localStorage.getItem("temp");
         var hum = localStorage.getItem("humidity");
         var wind = localStorage.getItem("wind");
-        // console.log(city)
+        //    rendering city search on page
         if (city) {
             $(".city").text(city);
-            // $(".date").text(date);
-            // $(".icon").html("<img src='https://openweathermap.org/img/wn/" + icon + ".png" + "'>");
+            $(".icon").html("<img src='https://openweathermap.org/img/wn/" + icon + ".png" + "'>");
             $(".temp").text(temp);
             $(".humidity").text(hum);
             $(".wind").text(wind);
@@ -110,25 +112,42 @@ $(document).ready(function () {
         cityList.splice(cityList[0])
     }
 
+
     // display five day forecase 
     fiveDayForecast()
     function fiveDayForecast() {
+
+         // append date to forecasted days
+         $(".date1").text(date1);
+         $(".date2").text(date2);
+         $(".date3").text(date3);
+         $(".date4").text(date4);
+         $(".date5").text(date5);
+         
         // use JSON to set and get object with api from localStorage
         var citySearch = JSON.parse(localStorage.getItem("search"))
         console.log(citySearch)
         // use loop to get api search items 
         for (var i = 0; i < citySearch.list.length; i++) {
+            console.log(citySearch.list[i].weather[0].icon)
+
+            // append weather icons 
+            $(".icon1").html(".icon1").html("<img src='https://openweathermap.org/img/wn/" +  citySearch.list[1].weather[0].icon + ".png" + "'>");
+            $(".icon2").html(".icon2").html("<img src='https://openweathermap.org/img/wn/" +  citySearch.list[2].weather[0].icon + ".png" + "'>");
+            $(".icon3").html(".icon3").html("<img src='https://openweathermap.org/img/wn/" +  citySearch.list[3].weather[0].icon + ".png" + "'>");
+            $(".icon4").html(".icon4").html("<img src='https://openweathermap.org/img/wn/" +  citySearch.list[4].weather[0].icon + ".png" + "'>");
+            $(".icon5").html(".icon5").html("<img src='https://openweathermap.org/img/wn/" +  citySearch.list[5].weather[0].icon + ".png" + "'>");
+
+
+
             console.log(citySearch.list[i])
         }
-        // append date to forecasted days
-        $(".date1").text(date1);
-        $(".date2").text(date2);
-        $(".date3").text(date3);
-        $(".date4").text(date4);
-        $(".date5").text(date5);
+       
 
         // append icon to forecasted days
-        // $(".icon1").html(".icon").html("<img src='https://openweathermap.org/img/wn/" +  citySearch.list[1].weather[0].iconicon + ".png" + "'>");
+        // $(".icon1").html(".icon1").html("<img src='https://openweathermap.org/img/wn/" +  citySearch.list[1].weather[0].iconicon + ".png" + "'>");
+
+        // $(".icon1").html("<img src='" + citySearch.list[1].weather[0].iconicon + ".png"  + "'>");
 
         // append temperature to forecasted days
         $(".temp1").text(citySearch.city.name);
