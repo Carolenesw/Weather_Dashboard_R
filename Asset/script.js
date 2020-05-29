@@ -140,7 +140,7 @@ $(document).ready(function () {
         // use loop to get api search items 
         for (var i = 0; i < citySearch.list.length; i++) {
             console.log(citySearch.list[i].weather[0].icon)
-
+            
             // append weather icons 
             $(".icon1").html(".icon1").html("<img src='https://openweathermap.org/img/wn/" + citySearch.list[1].weather[0].icon + ".png" + "'>");
             $(".icon2").html(".icon2").html("<img src='https://openweathermap.org/img/wn/" + citySearch.list[2].weather[0].icon + ".png" + "'>");
@@ -156,6 +156,13 @@ $(document).ready(function () {
             $(".temp5").text("Temp: " + citySearch.list[5].main.temp + " " + "F");
             
             // append humidity data
+            $(".humidity1").text("Humidity: " + citySearch.list[1].main.humidity + " " + "%");
+            $(".humidity2").text("Humidity: " + citySearch.list[2].main.humidity + " " + "%");
+            $(".humidity3").text("Humidity: " + citySearch.list[3].main.humidity + " " + "%");
+            $(".humidity4").text("Humidity: " + citySearch.list[4].main.humidity + " " + "%");
+            $(".humidity5").text("Humidity: " + citySearch.list[5].main.humidity + " " + "%");
+            
+
         }
 
 
