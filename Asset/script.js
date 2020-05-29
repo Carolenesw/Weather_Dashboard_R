@@ -50,16 +50,15 @@ $(document).ready(function () {
             localStorage.setItem("humidity", "Humidity: " + humD + " " + "%");
             localStorage.setItem("wind", "Wind Speed: " + windS + " " + "MPH");
 
-            renderCurrentDayForecast(cityName);
-            // show list of search results on html page  
+            // render search results on html page 
+            renderCurrentDayForecast(); 
             renderLastSearchList();
             fiveDayForecast();
         })
 
     })
-    // render search results on html page  
+    
     renderCurrentDayForecast();
-
     // render currentr forecast function to display search result on page
     function renderCurrentDayForecast(cityName) {
         var city = localStorage.getItem("city");
@@ -68,6 +67,7 @@ $(document).ready(function () {
         var temp = localStorage.getItem("temp");
         var hum = localStorage.getItem("humidity");
         var wind = localStorage.getItem("wind");
+
         //    rendering city search on page
         if (city) {
             $(".city").text(city);
@@ -93,17 +93,24 @@ $(document).ready(function () {
         $.each(cityList, function (i, city) {
             $("#city-search").append("<div>" + city + "</div>");
 
-
             $(".save").on("click", function (event) {
                 event.preventDefault();
 
-                // var click = $(this).parent().attr("id");
-                // $("#city-search").children()
-                // ("#city-search").children("<div>")
-                // $("#city-search").find()
-                // var click = $(this).parent().children();
+                //  cityListRow();
+        //     function cityListRow(cityList, city) {
 
-                // var click = $(this).parent().parent().find("<di>");
+        //         var cityS = localStorage.getItem("cityS")
+        //         cityList.push(cityS)
+        //         console.log(cityList)
+
+        //         if (cityList.indexOf(city) === -1) {
+        //             cityList.push(city);
+        //             $("#city-search").append("<br> <button>" + cityName + "</button>").addClass("cities", cityName);
+        //             console.log(allCities);
+        //         } else {
+        //             alert("please click" + cityName + "button");
+        //         }
+        //     }
             })
 
         });
@@ -112,7 +119,7 @@ $(document).ready(function () {
     }
 
     // display five day forecase 
-    // fiveDayForecast()
+    fiveDayForecast()
     function fiveDayForecast() {
 
         // append date to forecasted days
@@ -121,7 +128,6 @@ $(document).ready(function () {
         $(".date3").text(date3);
         $(".date4").text(date4);
         $(".date5").text(date5);
-
 
         // use JSON to set and get object with api from localStorage
         var citySearch = JSON.parse(localStorage.getItem("search"))
