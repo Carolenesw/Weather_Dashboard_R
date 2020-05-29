@@ -18,15 +18,13 @@ $(document).ready(function () {
     $(".save").on("click", function (event) {
         event.preventDefault();
         cityName = $(".search").val().trim();
-        click = $(this).parent("#city-search");
-
-        // var textArea = $(this).parent().parent().find("textarea").val();
 
         console.log(cityName)
 
         if (!cityName) {
             alert("Please enter a City Name!")
         }
+
         // AJAX call to the run OpenWeatherMap API for 5 days forecast
         var queryURL = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&appid=${apiKey}`;
 
@@ -107,6 +105,18 @@ $(document).ready(function () {
             $("#city-search").append("<div>" + city + "</div>");
 
 
+            $(".save").on("click", function (event) {
+                event.preventDefault();
+
+                // var click = $(this).parent().attr("id");
+                // $("#city-search").children()
+                // ("#city-search").children("<div>")
+                // $("#city-search").find()
+                // var click = $(this).parent().children();
+
+                // var click = $(this).parent().parent().find("<di>");
+            })
+
         });
         // use splice method to remove duplications 
         cityList.splice(cityList[0])
@@ -117,13 +127,13 @@ $(document).ready(function () {
     fiveDayForecast()
     function fiveDayForecast() {
 
-         // append date to forecasted days
-         $(".date1").text(date1);
-         $(".date2").text(date2);
-         $(".date3").text(date3);
-         $(".date4").text(date4);
-         $(".date5").text(date5);
-         
+        // append date to forecasted days
+        $(".date1").text(date1);
+        $(".date2").text(date2);
+        $(".date3").text(date3);
+        $(".date4").text(date4);
+        $(".date5").text(date5);
+
         // use JSON to set and get object with api from localStorage
         var citySearch = JSON.parse(localStorage.getItem("search"))
         console.log(citySearch)
@@ -132,17 +142,22 @@ $(document).ready(function () {
             console.log(citySearch.list[i].weather[0].icon)
 
             // append weather icons 
-            $(".icon1").html(".icon1").html("<img src='https://openweathermap.org/img/wn/" +  citySearch.list[1].weather[0].icon + ".png" + "'>");
-            $(".icon2").html(".icon2").html("<img src='https://openweathermap.org/img/wn/" +  citySearch.list[2].weather[0].icon + ".png" + "'>");
-            $(".icon3").html(".icon3").html("<img src='https://openweathermap.org/img/wn/" +  citySearch.list[3].weather[0].icon + ".png" + "'>");
-            $(".icon4").html(".icon4").html("<img src='https://openweathermap.org/img/wn/" +  citySearch.list[4].weather[0].icon + ".png" + "'>");
-            $(".icon5").html(".icon5").html("<img src='https://openweathermap.org/img/wn/" +  citySearch.list[5].weather[0].icon + ".png" + "'>");
+            $(".icon1").html(".icon1").html("<img src='https://openweathermap.org/img/wn/" + citySearch.list[1].weather[0].icon + ".png" + "'>");
+            $(".icon2").html(".icon2").html("<img src='https://openweathermap.org/img/wn/" + citySearch.list[2].weather[0].icon + ".png" + "'>");
+            $(".icon3").html(".icon3").html("<img src='https://openweathermap.org/img/wn/" + citySearch.list[3].weather[0].icon + ".png" + "'>");
+            $(".icon4").html(".icon4").html("<img src='https://openweathermap.org/img/wn/" + citySearch.list[4].weather[0].icon + ".png" + "'>");
+            $(".icon5").html(".icon5").html("<img src='https://openweathermap.org/img/wn/" + citySearch.list[5].weather[0].icon + ".png" + "'>");
 
-
-
-            console.log(citySearch.list[i])
+            // append temperature data
+            $(".temp1").text("Temp: " + citySearch.list[1].main.temp + " " + "F");
+            $(".temp2").text("Temp: " + citySearch.list[2].main.temp + " " + "F");
+            $(".temp3").text("Temp: " + citySearch.list[3].main.temp + " " + "F");
+            $(".temp4").text("Temp: " + citySearch.list[4].main.temp + " " + "F");
+            $(".temp5").text("Temp: " + citySearch.list[5].main.temp + " " + "F");
+            
+            // append humidity data
         }
-       
+
 
         // append icon to forecasted days
         // $(".icon1").html(".icon1").html("<img src='https://openweathermap.org/img/wn/" +  citySearch.list[1].weather[0].iconicon + ".png" + "'>");
@@ -150,7 +165,7 @@ $(document).ready(function () {
         // $(".icon1").html("<img src='" + citySearch.list[1].weather[0].iconicon + ".png"  + "'>");
 
         // append temperature to forecasted days
-        $(".temp1").text(citySearch.city.name);
+        // $(".temp1").text(citySearch.city.name);
     }
 
     // localStorage.getItem("<img src='http://openweathermap.org/img/w/04d.png' alt='Icon depicting current weather.'>")
