@@ -11,15 +11,11 @@ $(document).ready(function () {
     var date3 = moment().add(3, 'days').format('L')
     var date4 = moment().add(4, 'days').format('L')
     var date5 = moment().add(5, 'days').format('L')
-    // console.log(date5)
-    // console.log(currentDate)
 
     // click function to capture city search and call weather app API
     $(".save").on("click", function (event) {
         event.preventDefault();
         cityName = $(".search").val().trim();
-
-        console.log(cityName)
 
         if (!cityName) {
             alert("Please enter a City Name!")
@@ -33,23 +29,16 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (data) {
             console.log(data)
-            console.log(data.city.name)
-            console.log(data.list[0].weather[0].icon)
-
-
+            
+            // use variables to stored api call criterias
             var iconCode = data.list[0].weather[0].icon
-
-            console.log(iconCode)
             var temp = data.list[0].main.temp;
-            console.log(temp)
             var humD = data.list[0].main.humidity;
             console.log(humD)
             var windS = data.list[0].wind.speed
-            console.log(windS)
             // use city name from api call to render list
             var cityS = data.city.name
             var search = data
-            console.log(search)
 
             //  set current city search result to local storage
             localStorage.setItem("city", cityName + " " + "(" + currentDate + ")");
@@ -61,10 +50,10 @@ $(document).ready(function () {
             localStorage.setItem("humidity", "Humidity: " + humD + " " + "%");
             localStorage.setItem("wind", "Wind Speed: " + windS + " " + "MPH");
 
-            renderCurrentDayForecast();
+            renderCurrentDayForecast(cityName);
             // show list of search results on html page  
             renderLastSearchList();
-
+            fiveDayForecast();
         })
 
     })
@@ -72,7 +61,7 @@ $(document).ready(function () {
     renderCurrentDayForecast();
 
     // render currentr forecast function to display search result on page
-    function renderCurrentDayForecast() {
+    function renderCurrentDayForecast(cityName) {
         var city = localStorage.getItem("city");
         var icon = localStorage.getItem("icon");
         // var date = localStorage.getItem("date");
@@ -122,9 +111,8 @@ $(document).ready(function () {
         cityList.splice(cityList[0])
     }
 
-
     // display five day forecase 
-    fiveDayForecast()
+    // fiveDayForecast()
     function fiveDayForecast() {
 
         // append date to forecasted days
@@ -133,6 +121,7 @@ $(document).ready(function () {
         $(".date3").text(date3);
         $(".date4").text(date4);
         $(".date5").text(date5);
+
 
         // use JSON to set and get object with api from localStorage
         var citySearch = JSON.parse(localStorage.getItem("search"))
@@ -162,26 +151,10 @@ $(document).ready(function () {
             $(".humidity4").text("Humidity: " + citySearch.list[4].main.humidity + " " + "%");
             $(".humidity5").text("Humidity: " + citySearch.list[5].main.humidity + " " + "%");
             
-
         }
-
-
-        // append icon to forecasted days
-        // $(".icon1").html(".icon1").html("<img src='https://openweathermap.org/img/wn/" +  citySearch.list[1].weather[0].iconicon + ".png" + "'>");
-
-        // $(".icon1").html("<img src='" + citySearch.list[1].weather[0].iconicon + ".png"  + "'>");
-
-        // append temperature to forecasted days
-        // $(".temp1").text(citySearch.city.name);
+        
     }
 
-    // localStorage.getItem("<img src='http://openweathermap.org/img/w/04d.png' alt='Icon depicting current weather.'>")
-    // $(".icon").append("<img src='http://openweathermap.org/img/w/04d.png' alt='Icon depicting current weather.'>");
-
-
-
-    // localStorage.getItem("<img src='http://openweathermap.org/img/w/04d.png' alt='Icon depicting current weather.'>")
-    // $(".icon").append("<img src='http://openweathermap.org/img/w/04d.png' alt='Icon depicting current weather.'>");
 })
 
 
