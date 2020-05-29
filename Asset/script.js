@@ -24,9 +24,9 @@ $(document).ready(function () {
             alert("Please enter a City Name!")
         }
         // AJAX call to the run OpenWeatherMap API for 5 days forecast
-        // var queryURL = `https://api.openweathermap.org/data/2.5/forecast?q={cityName}&appid={apiKey}`;
+        var queryURL = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}`;
 
-        var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&appid=" + apiKey;
+        // var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&appid=" + apiKey;
         $.ajax({
             url: queryURL,
             method: "GET"
@@ -36,12 +36,8 @@ $(document).ready(function () {
             console.log(data.list[0].weather[0].icon)
 
 
-            // $(".icon").html("<img src='http://openweathermap.org/img/w/" + data.list[0].weather[0].icon + ".png' alt=''>");
-
-            // use variables to capture required data from API call
-            // var iconCode = "<img src='http://openweathermap.org/img/w/" + data.list[0].weather[0].icon + ".png' alt='Icon depicting current weather.'>";
             var iconCode = data.list[0].weather[0].icon
-            // var iconCode = "<img src=http://openweathermap.org/img/wn/" + data.list[0].weather[0].icon + ".png"+ ">";
+
             console.log(iconCode)
             var temp = data.list[0].main.temp;
             console.log(temp)
@@ -86,7 +82,7 @@ $(document).ready(function () {
         if (city) {
             $(".city").text(city);
             // $(".date").text(date);
-            $(".icon").html("<img src='https://openweathermap.org/img/wn/" + icon + ".png" + "'>");
+            // $(".icon").html("<img src='https://openweathermap.org/img/wn/" + icon + ".png" + "'>");
             $(".temp").text(temp);
             $(".humidity").text(hum);
             $(".wind").text(wind);
@@ -107,7 +103,11 @@ $(document).ready(function () {
         // loop through array using .each() method and append to search form 
         $.each(cityList, function (i, city) {
             $("#city-search").append("<div>" + city + "</div>");
+
+
         });
+        // use splice method to remove duplications 
+        cityList.splice(cityList[0])
     }
 
     // display five day forecase 
@@ -115,9 +115,23 @@ $(document).ready(function () {
     function fiveDayForecast() {
         // use JSON to set and get object with api from localStorage
         var citySearch = JSON.parse(localStorage.getItem("search"))
-        console.log(citySearch.city.name)
+        console.log(citySearch)
+        // use loop to get api search items 
+        for (var i = 0; i < citySearch.list.length; i++) {
+            console.log(citySearch.list[i])
+        }
+        // append date to forecasted days
+        $(".date1").text(date1);
+        $(".date2").text(date2);
+        $(".date3").text(date3);
+        $(".date4").text(date4);
+        $(".date5").text(date5);
 
+        // append icon to forecasted days
+        // $(".icon1").html(".icon").html("<img src='https://openweathermap.org/img/wn/" +  citySearch.list[1].weather[0].iconicon + ".png" + "'>");
 
+        // append temperature to forecasted days
+        $(".temp1").text(citySearch.city.name);
     }
 
     // localStorage.getItem("<img src='http://openweathermap.org/img/w/04d.png' alt='Icon depicting current weather.'>")
