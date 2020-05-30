@@ -94,26 +94,41 @@ $(document).ready(function () {
         var cityS = localStorage.getItem("cityS");
         cityList.push(cityS);
         // console.log(cityList)
-
+        
         // loop through array using .each() method and append to search form 
         $.each(cityList, function (i, city) {
-            $("#city-search").append("<br><button>" + city + "</button>").addClass("cities");
+            // $("#city-search").append("<br><button>");
+            var button = $("<button>")
+            button.addClass("cities")
+            button.text(city).val(city)
+            $("#city-search").append(button)
 
-            $(".cities").on("click", function (event) {
-                event.preventDefault();
-
-                city = $(".cities").val().trim();
-                // city = (".cities").find("button").val()
-
-                // console.log(city)
-                renderCurrentDayForecast();
-                fiveDayForecast();
-
-            })
+            console.log(button)
+            // $("#city-search").append("button").addClass("cities").text(city);
 
         });
         // use splice method to remove duplications 
         cityList.splice(cityList[0]);
+
+        $(".cities").on("click", function (event) {
+            event.preventDefault();
+
+            var city = $(this).val().trim();
+            // var cityN = $(".cityN")
+
+            if (city) {
+                $(".city").empty(city)
+        
+               ;
+               
+            }
+            // city = (".cities").find("button").val()
+
+            console.log(city)
+            // renderCurrentDayForecast();
+            fiveDayForecast();
+
+        })
     }
 
     // display five day forecase 
@@ -162,7 +177,7 @@ $(document).ready(function () {
     // api call for UV Index... get lon and lat from weather forecast api
     var lat = localStorage.getItem("lat");
     var lon = localStorage.getItem("lon");
-   
+
     var apiKey1 = "351b80106cd356a907301219dd0c7806";
     var queryURL1 = `https://api.openweathermap.org/data/2.5/uvi?appid=${apiKey1}&lat=${lat}&lon=${lon}`;
 
