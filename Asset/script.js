@@ -27,7 +27,7 @@ $(document).ready(function () {
             url: queryURL,
             method: "GET"
         }).then(function (data) {
-            console.log(data)
+            // console.log(data)
 
             // use variables to stored api call criterias
             var iconCode = data.list[0].weather[0].icon
@@ -37,6 +37,13 @@ $(document).ready(function () {
             // use city name from api call to render list
             var cityS = data.city.name
             var search = data
+            // collect data for uv index
+            var lat = data.city.coord.lat
+            var lon = data.city.coord.lon
+            console.log(lat)
+            console.log(lon)
+
+            // coord: {lat: 40.7143, lon: -74.006}
 
             //  set current city search result to local storage
             localStorage.setItem("city", cityName + " " + "(" + currentDate + ")");
@@ -46,6 +53,9 @@ $(document).ready(function () {
             localStorage.setItem("temp", "Temperature: " + temp + " " + "F");
             localStorage.setItem("humidity", "Humidity: " + humD + " " + "%");
             localStorage.setItem("wind", "Wind Speed: " + windS + " " + "MPH");
+            localStorage.setItem("lat", lat);
+            localStorage.setItem("lon", lon);
+
 
             // render search results on html page 
             renderCurrentDayForecast();
@@ -81,9 +91,9 @@ $(document).ready(function () {
     // create function to render list of previous searches
     function renderLastSearchList() {
         // get city list from local storage and push to array
-        var cityS = localStorage.getItem("cityS")
-        cityList.push(cityS)
-        console.log(cityList)
+        var cityS = localStorage.getItem("cityS");
+        cityList.push(cityS);
+        // console.log(cityList)
 
         // loop through array using .each() method and append to search form 
         $.each(cityList, function (i, city) {
@@ -92,18 +102,18 @@ $(document).ready(function () {
             $(".cities").on("click", function (event) {
                 event.preventDefault();
 
-                city = $(".cities").val().trim()
+                city = $(".cities").val().trim();
                 // city = (".cities").find("button").val()
 
-                console.log(city)
+                // console.log(city)
                 renderCurrentDayForecast();
                 fiveDayForecast();
-                
+
             })
 
         });
         // use splice method to remove duplications 
-        cityList.splice(cityList[0])
+        cityList.splice(cityList[0]);
     }
 
     // display five day forecase 
@@ -118,11 +128,11 @@ $(document).ready(function () {
         $(".date5").text(date5);
 
         // use JSON to set and get object with api from localStorage
-        var citySearch = JSON.parse(localStorage.getItem("search"))
-        console.log(citySearch)
+        var citySearch = JSON.parse(localStorage.getItem("search"));
+        // console.log(citySearch)
         // use loop to get api search items 
         for (var i = 0; i < citySearch.list.length; i++) {
-            console.log(citySearch.list[i].weather[0].icon)
+            // console.log(citySearch.list[i].weather[0].icon)
 
             // append weather icons 
             $(".icon1").html(".icon1").html("<img src='https://openweathermap.org/img/wn/" + citySearch.list[1].weather[0].icon + ".png" + "'>");
@@ -145,11 +155,29 @@ $(document).ready(function () {
             $(".humidity4").text("Humidity: " + citySearch.list[4].main.humidity + " " + "%");
             $(".humidity5").text("Humidity: " + citySearch.list[5].main.humidity + " " + "%");
 
-        }
+        };
 
-    }
+    };
 
-})
+    // api call for UV Index... get lon and lat from weather forecast api
+    var lat = localStorage.getItem("lat");
+    var lon = localStorage.getItem("lon");
+   
+    var apiKey1 = "351b80106cd356a907301219dd0c7806";
+    var queryURL1 = `https://api.openweathermap.org/data/2.5/uvi?appid=${apiKey1}&lat=${lat}&lon=${lon}`;
+
+    $.ajax({
+        url: queryURL1,
+        method: "GET",
+    }).then(function (res) {
+        console.log(res)
+        // get and a ppend uv index from local storage
+        var uvI = res.value;
+        $(".UV").text("UV Index: " + uvI);
+
+    });
+
+});
 
 
 
