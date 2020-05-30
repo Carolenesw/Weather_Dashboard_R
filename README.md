@@ -20,7 +20,10 @@ The weather application will allow user to search based on their current locatio
 
 - The app will show current weather based on city entered. 
     - Display date, image, temperature, humidity, windspeed and UV index.
-    - Color should display if the weather conditions are favorable. 
+- Color should display if the weather conditions are favorable. 
+    - Green is favorable,
+    - Orange is mild, and
+    - Red is bad (rain, snow, etc.
 - Display forecast for the next five days.
     - Display date, image, temperature and humidity.
 - The app will display user search history.
