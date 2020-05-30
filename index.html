@@ -25,95 +25,73 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-lg-2">
+      <div class="col-lg-3">
         <!-- use form to append search criterias -->
         <label class="input" for="search-input">Search for a City:</label>
         <form id="city-search">
           <textarea name="" class="search" cols="15" rows="1" placeholder="Type City"></textarea>
           <img class="save" src="./Asset/image/Button-search.png" width="30" alt="save button">
         </form>
-
       </div>
 
-      <div class="col-lg-8">
+      <div class="col-lg-9">
         <div class="row">
           <section id="current-city">
             <div class="city"></div>
+            <br>
             <div class="date"></div>
+            <br>
             <div class="icon"></div>
+            <br>
             <div class="temp"></div>
+            <br>
             <div class="humidity"></div>
-            <div class="wind"></div>
+            <br>
+            <div class="wind"></div> <br>
             <div class="UV"></div>
         </div>
-        </section>
-
-
-        <div class="row">
-          <section id="forecast">
-            <!-- use cards to store five days forecast info -->
-            <h3 class="days">5-Day Forecast:</h2>
-              <div class="col-sm-2.4" class="card1">
-                <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
-                  <div class="card-body">
-                    <p class="card-text">CARD 1</p>
-                    <div class="date1"></div>
-                    <div class="icon1"></div>
-                    <div class="temp1"></div>
-                    <div class="humidity1"></div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-sm-2.4" class="card2">
-                <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
-                  <div class="card-body">
-                    <p class="card-text">CARD 2</p>
-                    <div class="date2"></div>
-                    <div class="icon2"></div>
-                    <div class="temp2"></div>
-                    <div class="humidity2"></div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-sm-2.4" class="card3">
-                <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
-                  <div class="card-body">
-                    <p class="card-text">CARD 3</p>
-                    <div class="date3"></div>
-                    <div class="icon3"></div>
-                    <div class="temp3"></div>
-                    <div class="humidity3"></div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-sm-2.4" class="card4">
-                <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
-                  <div class="card-body">
-                    <p class="card-text">CARD 4</p>
-                    <div class="date4"></div>
-                    <div class="icon4"></div>
-                    <div class="temp4"></div>
-                    <div class="humidity4"></div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-sm-2.4" class="card5">
-                <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
-                  <div class="card-body">
-                    <p class="card-text">CARD 5</p>
-                    <div class="date5"></div>
-                    <div class="icon5"></div>
-                    <div class="temp5"></div>
-                    <div class="humidity5"></div>
-                  </div>
-                </div>
-              </div>
+        <h3>5-Day Forecast:</h2>
           </section>
-        </div>
+
+
+          <div class="row" id="forecast">
+
+            <div class="card1">
+              <div class="date1"></div>
+              <div class="icon1"></div>
+              <div class="temp1"></div>
+              <div class="humidity1"></div>
+            </div>
+
+            <div class="card2">
+              <div class="date2"></div>
+              <div class="icon2"></div>
+              <div class="temp2"></div>
+              <div class="humidity2"></div>
+            </div>
+           
+            
+            <div class="card3">
+              <div class="date3"></div>
+              <div class="icon3"></div>
+              <div class="temp3"></div>
+              <div class="humidity3"></div>
+            </div>
+          
+            <div class="card4">
+              <div class="date4"></div>
+              <div class="icon4"></div>
+              <div class="temp4"></div>
+              <div class="humidity4"></div>
+            </div>
+           
+            <div class="card5">
+              <div class="date5"></div>
+              <div class="icon5"></div>
+              <div class="temp5"></div>
+              <div class="humidity5"></div>
+            </div>
+          </div>
       </div>
     </div>
   </div>

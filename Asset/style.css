@@ -11,6 +11,7 @@
 }
 img {
 background-color: lightsteelblue;
+text-align: center;
 }
 
 .search .save {
@@ -26,6 +27,12 @@ background-color: lightsteelblue;
 
 #current-city {
     font-family: 'PT Serif', serif;
+    border-top:  gray solid;
+    border-left:  gray solid;
+    border-bottom: gray solid;
+    padding: 30px;
+    margin-bottom: 25px;
+    width: 100%;
 }
 
 .days {
@@ -35,4 +42,54 @@ background-color: lightsteelblue;
 #forecast {
 
     font-family: 'PT Serif', serif;
+    margin-bottom: 50px;
+}
+h3 {
+    font-family: 'PT Serif', serif;
+    margin-top: 10px;
+}
+
+.card1 {
+    
+float: right;
+background-color: mediumaquamarine;
+padding: 15px;
+margin-right: 10px;
+margin-left: 5px;
+margin-bottom: 5px;
+border: solid grey;
+
+}
+
+.card2 {
+    background-color: mediumaquamarine; 
+    padding: 15px;
+    margin-right: 10px;
+    border: solid grey;
+    margin-bottom: 5px;
+}
+
+.card3 { 
+    background-color: mediumaquamarine; 
+    padding: 15px;
+    margin-right: 10px;
+    border: solid grey;
+    margin-bottom: 5px;
+}
+
+.card4 { 
+    background-color: mediumaquamarine; 
+    padding: 15px;
+    margin-right: 10px;
+    border: solid grey;
+    margin-bottom: 5px;
+}
+
+.card5 { 
+    background-color: mediumaquamarine; 
+    padding: 15px;
+    margin-right: 10px;
+    border: solid grey;
+    margin-bottom: 5px;
+    clear: both;
 }
