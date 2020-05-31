@@ -40,10 +40,6 @@ $(document).ready(function () {
             // collect data for uv index
             var lat = data.city.coord.lat
             var lon = data.city.coord.lon
-            console.log(lat)
-            console.log(lon)
-
-            // coord: {lat: 40.7143, lon: -74.006}
 
             //  set current city search result to local storage
             localStorage.setItem("city", cityName + " " + "(" + currentDate + ")");
@@ -55,7 +51,6 @@ $(document).ready(function () {
             localStorage.setItem("wind", "Wind Speed: " + windS + " " + "MPH");
             localStorage.setItem("lat", lat);
             localStorage.setItem("lon", lon);
-
 
             // render search results on html page 
             renderCurrentDayForecast();
@@ -73,7 +68,7 @@ $(document).ready(function () {
         var temp = localStorage.getItem("temp");
         var hum = localStorage.getItem("humidity");
         var wind = localStorage.getItem("wind");
-
+        console.log(icon)
         //    rendering city search on page
         if (city) {
             $(".city").text(city);
@@ -82,9 +77,15 @@ $(document).ready(function () {
             $(".humidity").text(hum);
             $(".wind").text(wind);
         }
-        // else {
-        //     return;
-        // }
+
+        // add color code the highlight weather conditions
+        if (icon === '01d' || icon === '02d' || icon === '01n' || icon === '02n') {
+            $(".city").css({ "background-color": "#77dd77" });
+        } else if (icon === '03d' || icon === '03n' || icon === '04d' || icon === '04n') {
+            $(".city").css({ "background-color": "#FFBF00" });
+        } else {
+            $(".city").css({ "background-color": "#ff6961" });
+        }
 
     }
 
@@ -94,11 +95,11 @@ $(document).ready(function () {
         var cityS = localStorage.getItem("cityS");
         cityList.push(cityS);
         // console.log(cityList)
-        
+
         // loop through array using .each() method and append to search form 
         $.each(cityList, function (i, city) {
             // $("#city-search").append("<br><button>");
-            var button = $("<button>")
+            var button = $("<br><button>")
             button.addClass("cities")
             button.text(city).val(city)
             $("#city-search").append(button)
@@ -117,12 +118,9 @@ $(document).ready(function () {
             // var cityN = $(".cityN")
 
             if (city) {
-                $(".city").empty(city)
-        
-               ;
-               
+                // $(".city").empty(city)
+
             }
-            // city = (".cities").find("button").val()
 
             console.log(city)
             // renderCurrentDayForecast();
@@ -144,10 +142,9 @@ $(document).ready(function () {
 
         // use JSON to set and get object with api from localStorage
         var citySearch = JSON.parse(localStorage.getItem("search"));
-        // console.log(citySearch)
+
         // use loop to get api search items 
         for (var i = 0; i < citySearch.list.length; i++) {
-            // console.log(citySearch.list[i].weather[0].icon)
 
             // append weather icons 
             $(".icon1").html(".icon1").html("<img src='https://openweathermap.org/img/wn/" + citySearch.list[1].weather[0].icon + ".png" + "'>");
