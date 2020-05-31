@@ -34,5 +34,12 @@ The weather application will allow user to search based on their current locatio
 
 https://carolenesw.github.io/Weather_Dashboard_R/
 
-![JavaScript-Code-Quiz]("./Develop/image/code-quiz.png")
+![JavaScript-Weather-Dashboard - Favorable Conditions] 
+<img scr="../Asset/image/green.png" width=100>
+
+[JavaScript-Weather-Dashboard - Moderate Conditions] 
+<img scr="../Asset/image/yellow.png" width=100>
+
+[JavaScript-Weather-Dashboard - Unfavorable Conditions] 
+<img scr="../Asset/image/red.png" width=100>
 
