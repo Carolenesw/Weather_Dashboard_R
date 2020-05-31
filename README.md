@@ -36,7 +36,7 @@ https://carolenesw.github.io/Weather_Dashboard_R/
 
 ## Images
 
-<img scr="Asset/image/green.png" width=100>
+<img scr="Weather_Dashboard_R/Asset/image/green.png" width=100>
 
 
 <img scr="../Asset/image/yellow.png" width=100>
