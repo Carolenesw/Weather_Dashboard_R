@@ -7,7 +7,7 @@ So that I can plan trips and dress appropriately.
 
 ## Technology
 
-- Vanilla JavaScript
+- JQuery
 - Open Weather API
 - Local Storage 
 - HTML/CSS
@@ -20,11 +20,11 @@ The weather application will allow user to search based on their current locatio
 
 - The app will show current weather based on city entered. 
     - Display date, image, temperature, humidity, windspeed and UV index
-    - Color should display is the weather conditions are favorable. 
+    - Color should indicate if the weather conditions are favorable. 
 - Display forecast for the next five days.
     - Display date, image, temperature and humidity.
-- The app will display last user search cities 
-- It should allow users to  select from any search history
+- The app will display last user search hsitory.
+- It should allow users to select from any search history and show current forecast
 
 
 ## link
