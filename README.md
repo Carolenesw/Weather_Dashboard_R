@@ -36,11 +36,11 @@ https://carolenesw.github.io/Weather_Dashboard_R/
 
 ## Images
 
-<img src="Weather_Dashboard_R/Asset/image/green.png">
+<img src="Asset/image/green.png">
 
 
 <img src="Asset/image/yellow.png">
 
 
-<img src="../Asset/image/red.png">
+<img src="Asset/image/red.png">
 
