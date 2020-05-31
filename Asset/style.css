@@ -1,0 +1,103 @@
+.card-header {
+    text-align: center;
+    font-size: 40px;
+    /* border: 5solid; */
+    background-color: black;
+    font-family: 'Oswald', sans-serif;
+}
+
+.input{
+    font-family: 'Oswald', sans-serif;
+}
+img {
+background-color: lightsteelblue;
+text-align: center;
+}
+
+.search .save {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+.city{
+    font-family: 'Oswald', sans-serif;
+    font-size: 35px;
+}
+
+#current-city {
+    font-family: 'PT Serif', serif;
+    border-top:  gray solid;
+    border-left:  gray solid;
+    border-bottom: gray solid;
+    padding: 30px;
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.days {
+    font-family: 'Oswald', sans-serif;
+}
+
+#forecast {
+
+    font-family: 'PT Serif', serif;
+    margin-bottom: 50px;
+}
+h3 {
+    font-family: 'PT Serif', serif;
+    margin-top: 10px;
+}
+
+.card1 {
+    
+float: right;
+background-color: mediumaquamarine;
+padding: 15px;
+margin-right: 10px;
+margin-left: 5px;
+margin-bottom: 5px;
+border: solid grey;
+
+}
+
+.card2 {
+    background-color: mediumaquamarine; 
+    padding: 15px;
+    margin-right: 10px;
+    border: solid grey;
+    margin-bottom: 5px;
+}
+
+.card3 { 
+    background-color: mediumaquamarine; 
+    padding: 15px;
+    margin-right: 10px;
+    border: solid grey;
+    margin-bottom: 5px;
+}
+
+.card4 { 
+    background-color: mediumaquamarine; 
+    padding: 15px;
+    margin-right: 10px;
+    border: solid grey;
+    margin-bottom: 5px;
+}
+
+.card5 { 
+    background-color: mediumaquamarine; 
+    padding: 15px;
+    margin-right: 10px;
+    border: solid grey;
+    margin-bottom: 5px;
+    clear: both;
+}
+
+
+.cities {
+    background-color: grey;
+    border: grey solid;
+    border: solid white;
+  }
+  
