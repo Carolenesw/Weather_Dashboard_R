@@ -27,7 +27,6 @@ $(document).ready(function () {
             url: queryURL,
             method: "GET"
         }).then(function (data) {
-            // console.log(data)
 
             // use variables to stored api call criterias
             var iconCode = data.list[0].weather[0].icon
@@ -68,7 +67,7 @@ $(document).ready(function () {
         var temp = localStorage.getItem("temp");
         var hum = localStorage.getItem("humidity");
         var wind = localStorage.getItem("wind");
-        console.log(icon)
+        
         //    rendering city search on page
         if (city) {
             $(".city").text(city);
@@ -78,7 +77,7 @@ $(document).ready(function () {
             $(".wind").text(wind);
         }
 
-        // add color code the highlight weather conditions
+        // add color code to highlight weather conditions
         if (icon === '01d' || icon === '02d' || icon === '01n' || icon === '02n') {
             $(".city").css({ "background-color": "#77dd77" });
         } else if (icon === '03d' || icon === '03n' || icon === '04d' || icon === '04n') {
@@ -104,32 +103,29 @@ $(document).ready(function () {
             button.text(city).val(city)
             $("#city-search").append(button)
 
-            console.log(button)
-            // $("#city-search").append("button").addClass("cities").text(city);
 
         });
-        // use splice method to remove duplications 
+        // use splice method to remove duplications from city listing
         cityList.splice(cityList[0]);
 
         $(".cities").on("click", function (event) {
             event.preventDefault();
 
             var city = $(this).val().trim();
-            // var cityN = $(".cityN")
 
+            // display search history value
             if (city) {
                 // $(".city").empty(city)
 
+                // renderCurrentDayForecast();
             }
 
-            console.log(city)
-            // renderCurrentDayForecast();
             fiveDayForecast();
 
         })
     }
 
-    // display five day forecase 
+    // display five day forecast
     fiveDayForecast()
     function fiveDayForecast() {
 
@@ -166,7 +162,6 @@ $(document).ready(function () {
             $(".humidity3").text("Humidity: " + citySearch.list[3].main.humidity + " " + "%");
             $(".humidity4").text("Humidity: " + citySearch.list[4].main.humidity + " " + "%");
             $(".humidity5").text("Humidity: " + citySearch.list[5].main.humidity + " " + "%");
-
         };
 
     };
@@ -183,7 +178,7 @@ $(document).ready(function () {
         method: "GET",
     }).then(function (res) {
         console.log(res)
-        // get and a ppend uv index from local storage
+        // get and append uv index from local storage
         var uvI = res.value;
         $(".UV").text("UV Index: " + uvI);
 
