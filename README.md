@@ -19,12 +19,15 @@ So that I can plan trips and dress appropriately.
 The weather application will allow user to search based on their current location or any city worldwide.
 
 - The app will show current weather based on city entered. 
-    - Display date, image, temperature, humidity, windspeed and UV index
-    - Color should indicate if the weather conditions are favorable. 
+    - Display date, image, temperature, humidity, windspeed and UV index.
+- Color should display if the weather conditions are favorable. 
+    - Green is favorable,
+    - Orange is mild, and
+    - Red is bad (rain, snow, etc.
 - Display forecast for the next five days.
     - Display date, image, temperature and humidity.
-- The app will display last user search hsitory.
-- It should allow users to select from any search history and show current forecast
+- The app will display user search history.
+- It should allow users to  select from any search history and display current forecast.
 
 
 ## link
