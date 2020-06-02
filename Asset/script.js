@@ -31,8 +31,9 @@ $(document).ready(function () {
             // use variables to stored api call criterias
             var iconCode = data.list[0].weather[0].icon
             var temp = data.list[0].main.temp;
+            console.log(temp)
             var humD = data.list[0].main.humidity;
-            var windS = data.list[0].wind.speed
+            var windS = data.list[0].wind.speed;
             // use city name from api call to render list
             var cityS = data.city.name
             var search = data
@@ -45,9 +46,9 @@ $(document).ready(function () {
             localStorage.setItem("cityS", cityS);
             localStorage.setItem("search", JSON.stringify(search))
             localStorage.setItem("icon", iconCode);
-            localStorage.setItem("temp", "Temperature: " + temp + " " + "F");
+            localStorage.setItem("temp", "Temperature: " + temp.toFixed() + " " + "F");
             localStorage.setItem("humidity", "Humidity: " + humD + " " + "%");
-            localStorage.setItem("wind", "Wind Speed: " + windS + " " + "MPH");
+            localStorage.setItem("wind", "Wind Speed: " + windS.toFixed() + " " + "MPH");
             localStorage.setItem("lat", lat);
             localStorage.setItem("lon", lon);
 
@@ -93,7 +94,7 @@ $(document).ready(function () {
         // get city list from local storage and push to array
         var cityS = localStorage.getItem("cityS");
         cityList.push(cityS);
-        // console.log(cityList)
+        console.log(cityList)
 
         // loop through array using .each() method and append to search form 
         $.each(cityList, function (i, city) {
@@ -102,6 +103,11 @@ $(document).ready(function () {
             button.addClass("cities")
             button.text(city).val(city)
             $("#city-search").append(button)
+
+            if (city) {
+                console.log(city)
+                console.log(button)
+            }
 
 
         });
@@ -150,11 +156,11 @@ $(document).ready(function () {
             $(".icon5").html(".icon5").html("<img src='https://openweathermap.org/img/wn/" + citySearch.list[5].weather[0].icon + ".png" + "'>");
 
             // append temperature data
-            $(".temp1").text("Temp: " + citySearch.list[1].main.temp + " " + "F");
-            $(".temp2").text("Temp: " + citySearch.list[2].main.temp + " " + "F");
-            $(".temp3").text("Temp: " + citySearch.list[3].main.temp + " " + "F");
-            $(".temp4").text("Temp: " + citySearch.list[4].main.temp + " " + "F");
-            $(".temp5").text("Temp: " + citySearch.list[5].main.temp + " " + "F");
+            $(".temp1").text("Temp: " + citySearch.list[1].main.temp.toFixed() + " " + "F");
+            $(".temp2").text("Temp: " + citySearch.list[2].main.temp.toFixed() + " " + "F");
+            $(".temp3").text("Temp: " + citySearch.list[3].main.temp.toFixed() + " " + "F");
+            $(".temp4").text("Temp: " + citySearch.list[4].main.temp.toFixed() + " " + "F");
+            $(".temp5").text("Temp: " + citySearch.list[5].main.temp.toFixed() + " " + "F");
 
             // append humidity data
             $(".humidity1").text("Humidity: " + citySearch.list[1].main.humidity + " " + "%");
@@ -180,7 +186,7 @@ $(document).ready(function () {
         console.log(res)
         // get and append uv index from local storage
         var uvI = res.value;
-        $(".UV").text("UV Index: " + uvI);
+        $(".UV").text("UV Index: " + uvI.toFixed());
 
     });
 
